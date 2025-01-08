@@ -1,0 +1,82 @@
+Arguments: 
+  D:\nodejs\node.exe D:\nodejs\node_global\node_modules\yarn\bin\yarn.js add sass -D
+
+PATH: 
+  C:\Program Files\iDun\utils;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Program Files (x86)\Common Files\NetSarang;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\scala\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\Tortoise\bin;C:\Program Files\Git\cmd;D:\nodejs\node_global\bin;D:\SVN\bin;D:\微信web开发者工具\dll;D:\HBuilderX.3.99.2023122611\HBuilderX\plugins\launcher-tools\tools\adbs;C:\Users\lenovo\AppData\Roaming\nvm;D:\nodejs;C:\Users\lenovo\AppData\Local\pnpm;C:\Users\lenovo\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\lenovo\AppData\Local\Programs\Python\Python311\;D:\IntelliJ IDEA 2020.1.1\bin;;C:\Program Files\Java\jdk1.8.0_271\bin;D:\Program Files\apache-maven-3.6.3\bin;D:\hadoop-3.1.3\bin;c:\program files\esafenet\cobra docguard client;D:\nodejs\node_global;D:\nodejs\node_cache;D:\nodejs\node_global\bin;C:\Users\lenovo\AppData\Local\Microsoft\WindowsApps;C:\Users\lenovo\AppData\Local\Programs\Microsoft VS Code\bin;D:\HBuilderX.3.99.2023122611\HBuilderX\plugins\launcher-tools\tools\adbs;C:\Users\lenovo\AppData\Local\GitHubDesktop\bin;C:\Users\lenovo\AppData\Roaming\nvm;D:\nodejs;D:\nodejs\node_global;D:\nodejs\node_modules\npm\.bin;
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.20.5
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, open 'C:\Users\lenovo\AppData\Local\Yarn\Cache\v6\npm-detect-libc-1.0.3-fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b-integrity\node_modules\detect-libc\.yarn-metadata.json'
+
+npm manifest: 
+  {
+    "version": "0.0.0",
+    "license": "ISC",
+    "scripts": {
+      "dev": "vite",
+      "build:dev": "vite build --mode development",
+      "build:pro": "vite build --mode production",
+      "serve": "vite preview",
+      "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+      "prettier": "prettier --write ."
+    },
+    "dependencies": {
+      "@tiptap/core": "^2.10.3",
+      "@tiptap/extension-document": "^2.10.3",
+      "@tiptap/extension-history": "^2.11.0",
+      "@tiptap/extension-image": "^2.10.3",
+      "@tiptap/extension-paragraph": "^2.10.3",
+      "@tiptap/extension-text": "^2.10.3",
+      "@tiptap/extension-text-style": "^2.10.3",
+      "@tiptap/pm": "^2.10.3",
+      "@tiptap/vue-3": "^2.10.3",
+      "vue": "^3.5.13",
+      "vue-router": "^4.5.0"
+    },
+    "devDependencies": {
+      "@babel/types": "^7.26.0",
+      "@types/node": "^22.10.1",
+      "@typescript-eslint/eslint-plugin": "^8.7.0",
+      "@typescript-eslint/parser": "^8.7.0",
+      "@vitejs/plugin-vue": "^5.0.4",
+      "@vue/compiler-sfc": "^3.5.13",
+      "autoprefixer": "^10.4.20",
+      "eslint": "^9.10.0",
+      "eslint-config-prettier": "^9.1.0",
+      "eslint-plugin-prettier": "^5.2.1",
+      "eslint-plugin-vue": "^9.28.0",
+      "less": "^4.2.1",
+      "less-loader": "^12.2.0",
+      "lint-staged": "^15.2.2",
+      "prettier": "^3.4.1",
+      "typescript": "^5.7.2",
+      "unplugin-auto-import": "^0.18.6",
+      "unplugin-vue-components": "^0.27.5",
+      "vite": "^6.0.2",
+      "vite-plugin-compression": "^0.5.1",
+      "vite-plugin-eslint": "^1.8.1",
+      "vite-plugin-svg-icons": "^2.0.1",
+      "vue-tsc": "^2.1.10"
+    },
+    "lint-staged": {
+      "*.{js,jsx,vue,ts,tsx}": [
+        "yarn lint",
+        "prettier --write",
+        "git add"
+      ]
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
