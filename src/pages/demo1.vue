@@ -31,8 +31,9 @@ const getText = () => {
 }
 
 const demoChangeName = (content: string) => {
-  const nameTag = createSelectTag({ tagKey: 'name', placeholder: '[患者姓名]', content })
-  editorRef.value?.editor?.commands.updateSelectTagByKey('name', nameTag)
+  const nameTag = createSelectTag({ tagKey: 'name2', placeholder: '[患者姓名]', content })
+  const nameTagNotFound = `，患者的标签特征有${nameTag}`
+  editorRef.value?.editor?.commands.updateSelectTagByKey('name2', nameTag, nameTagNotFound)
 }
 
 const onSelectTag = () => {}

@@ -15,16 +15,23 @@ const SelectTag = Node.create({
   addCommands() {
     return {
       updateSelectTagByKey:
-        (tagKey: string, content: string) =>
+        (tagKey: string, content: string, notFoundContent?: string) =>
         ({ editor, chain, commands }) => {
+          let found = false
           editor.state.doc.descendants((node, pos) => {
+            console.log(node)
+
             if (node.type.name === 'selectTag' && node.attrs.tagKey === tagKey) {
+              found = true
               chain()
                 .insertContentAt({ from: pos, to: pos + node.nodeSize }, content)
                 .focus(pos + 2)
                 .run()
             }
           })
+          if (!found && notFoundContent) {
+            chain().focus().insertContent(notFoundContent).run()
+          }
         },
     }
   },
