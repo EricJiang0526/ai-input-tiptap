@@ -13,8 +13,11 @@ import Paragraph from '@tiptap/extension-paragraph'
 import TextStyle from '@tiptap/extension-text-style'
 import History from '@tiptap/extension-history'
 import SelectTag from './extensions/select-tag'
+import { SelectTheTag, SelectTheTagParams } from './types'
 
-const emits = defineEmits(['selectTheTag'])
+const emits = defineEmits<{
+  selectTheTag: [SelectTheTagParams]
+}>()
 
 const editor = useEditor({
   content: '',
@@ -27,7 +30,7 @@ const addParagraph = (content: string): void => {
 
 const getText = () => editor.value?.state.doc.textContent
 
-const selectTheTag = (params) => {
+const selectTheTag: SelectTheTag = (params) => {
   emits('selectTheTag', params)
 }
 

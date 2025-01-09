@@ -4,7 +4,7 @@
   <button @click="demoChangeName('张三六六六')">名字变成张三</button>
   <button @click="demoChangeName('')">名字自定义</button>
   <div style="width: 300px; height: 200px; margin: 40px">
-    <AiInputEditor ref="editorRef" @select-the-tag="console.log"></AiInputEditor>
+    <AiInputEditor ref="editorRef" @select-the-tag="onSelectTag"></AiInputEditor>
   </div>
 </template>
 
@@ -34,4 +34,6 @@ const demoChangeName = (content: string) => {
   const nameTag = createSelectTag({ tagKey: 'name', placeholder: '[患者姓名]', content })
   editorRef.value?.editor?.commands.updateSelectTagByKey('name', nameTag)
 }
+
+const onSelectTag = () => {}
 </script>

@@ -12,12 +12,7 @@ export const createSelectTag = (options: SelectTagOptions) => {
 
   const buildAttr = (attr: string): string => (options[attr] ? `${attr}=${options[attr]}` : '')
 
-  let tagStr = ''
-  if (content) {
-    tagStr = `<select-tag ${optionKeys.map((k) => buildAttr(k)).join(' ')}>${content}</select-tag>`
-  } else {
-    tagStr = `<select-tag ${optionKeys.map((k) => buildAttr(k)).join(' ')}><p></p></select-tag>`
-  }
+  const tagStr = `<select-tag ${optionKeys.map((k) => buildAttr(k)).join(' ')}><p>${content}</p></select-tag>`
 
   return tagStr
 }

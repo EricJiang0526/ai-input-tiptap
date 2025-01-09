@@ -15,10 +15,11 @@
 <script setup lang="ts">
 import { NodeViewContent, nodeViewProps, NodeViewWrapper } from '@tiptap/vue-3'
 import { ref, watch, onUnmounted, inject } from 'vue'
+import { SelectTheTag } from '../types'
 
 const props = defineProps(nodeViewProps)
 
-const selectTheTag = inject('selectTheTag', () => {})
+const selectTheTag: SelectTheTag = inject('selectTheTag', () => {})
 
 const minWidth = ref('')
 const selected = ref(false)
