@@ -12,7 +12,7 @@
     <button @click="demoAddSymtom('nc')">nc</button>
   </div>
   <div style="width: 300px; height: 200px; margin: 40px">
-    <AiInputEditor ref="editorRef" @select-the-tag="onSelectTag"></AiInputEditor>
+    <AiInputEditor ref="editorRef" @select-tag="onSelectTag" @edit-tag="onEditTag"></AiInputEditor>
   </div>
 </template>
 
@@ -56,5 +56,11 @@ const demoAddSymtom = (content: string) => {
   )
 }
 
-const onSelectTag = () => {}
+const onSelectTag = (...args: any) => {
+  console.log(...args)
+}
+
+const onEditTag = (...args: any) => {
+  console.log(...args)
+}
 </script>

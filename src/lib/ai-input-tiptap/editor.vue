@@ -13,10 +13,11 @@ import Paragraph from '@tiptap/extension-paragraph'
 import TextStyle from '@tiptap/extension-text-style'
 import History from '@tiptap/extension-history'
 import SelectTag from './extensions/select-tag'
-import { SelectTheTag, SelectTheTagParams } from './types'
+import { OnSelectTag, OnSelectTagParams, OnEditTagParams } from './types'
 
 const emits = defineEmits<{
-  selectTheTag: [SelectTheTagParams]
+  selectTag: [OnSelectTagParams]
+  editTag: [OnEditTagParams]
 }>()
 
 const editor = useEditor({
@@ -30,11 +31,15 @@ const addParagraph = (content: string): void => {
 
 const getText = () => editor.value?.state.doc.textContent
 
-const selectTheTag: SelectTheTag = (params) => {
-  emits('selectTheTag', params)
+const onSelectTag: OnSelectTag = (params) => {
+  emits('selectTag', params)
+}
+const onEditTag = (params: OnEditTagParams) => {
+  emits('editTag', params)
 }
 
-provide('selectTheTag', selectTheTag)
+provide('onSelectTag', onSelectTag)
+provide('onEditTag', onEditTag)
 
 defineExpose({ addParagraph, getText, editor })
 </script>

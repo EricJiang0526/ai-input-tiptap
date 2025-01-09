@@ -15,11 +15,12 @@
 <script setup lang="ts">
 import { NodeViewContent, nodeViewProps, NodeViewWrapper } from '@tiptap/vue-3'
 import { ref, watch, onUnmounted, inject } from 'vue'
-import { SelectTheTag } from '../types'
+import { OnSelectTag, OnEditTag } from '../types'
 
 const props = defineProps(nodeViewProps)
 
-const selectTheTag: SelectTheTag = inject('selectTheTag', () => {})
+const onSelectTag: OnSelectTag = inject('onSelectTag', () => {})
+const onEditTag: OnEditTag = inject('onEditTag', () => {})
 
 const minWidth = ref('')
 const selected = ref(false)
@@ -49,6 +50,13 @@ watch(
   },
 )
 
+watch(
+  () => props.node.textContent,
+  () => {
+    onEditTag({ node: props.node })
+  },
+)
+
 const onSelectionUpdate = () => {
   const { from, to } = props.editor.state.selection
   const pos = props.getPos()
@@ -56,7 +64,7 @@ const onSelectionUpdate = () => {
   if (from > pos && to < pos + props.node.nodeSize) {
     if (!selected.value) {
       selected.value = true
-      selectTheTag({
+      onSelectTag({
         node: props.node,
         isSelected: true,
       })
@@ -64,7 +72,7 @@ const onSelectionUpdate = () => {
   } else {
     if (selected.value) {
       selected.value = false
-      selectTheTag({
+      onSelectTag({
         node: props.node,
         isSelected: false,
       })
