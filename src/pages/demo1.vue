@@ -1,8 +1,16 @@
 <template>
-  <button @click="addParagraph">新增一段话</button>
-  <button @click="getText">获取纯文本</button>
-  <button @click="demoChangeName('张三')">名字变成张三</button>
-  <button @click="demoChangeName('')">名字自定义</button>
+  <div>
+    <button @click="addParagraph">新增一段话</button>
+    <button @click="getText">获取纯文本</button>
+    <button @click="demoChangeName('张三')">名字变成张三</button>
+    <button @click="demoChangeName('')">名字自定义</button>
+  </div>
+  <div>
+    <button @click="demoAddSymtom('头疼')">头疼</button>
+    <button @click="demoAddSymtom('眼花')">眼花</button>
+    <button @click="demoAddSymtom('心脏病')">心脏病</button>
+    <button @click="demoAddSymtom('nc')">nc</button>
+  </div>
   <div style="width: 300px; height: 200px; margin: 40px">
     <AiInputEditor ref="editorRef" @select-the-tag="onSelectTag"></AiInputEditor>
   </div>
@@ -34,6 +42,18 @@ const demoChangeName = (content: string) => {
   const nameTag = createSelectTag({ tagKey: 'name', placeholder: '[患者姓名]', content })
   const nameTagNotFound = `，患者的标签特征有${nameTag}`
   editorRef.value?.editor?.commands.updateSelectTagByKey('name', nameTag, nameTagNotFound)
+}
+
+const demoAddSymtom = (content: string) => {
+  const symptomTag = createSelectTag({ tagKey: 'symptom', placeholder: '[症状]', content })
+  const symptomTagNotFound = `患者的标签特征有${symptomTag}`
+  const checkFound = (node) => node.textContent === content
+  editorRef.value?.editor?.commands.updateSelectTagListByKey(
+    'symptom',
+    `、${symptomTag}`,
+    checkFound,
+    symptomTagNotFound,
+  )
 }
 
 const onSelectTag = () => {}
